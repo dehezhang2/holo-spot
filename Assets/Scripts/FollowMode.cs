@@ -36,7 +36,7 @@ namespace Accessiblecontrol
                 Vector3 sentPosition = anchorList[0].transform.InverseTransformPoint(cursor.transform.position);
                 sentPosition.Scale(anchorList[0].transform.localScale);
                 positionList.Add(sentPosition);
-                cursor.transform.rotation = Random.rotation;
+
                 PosRotMsg cursorPos = new PosRotMsg(
                              idList[0],
                              positionList[0].z,

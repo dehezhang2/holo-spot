@@ -35,11 +35,15 @@ public class RosPublisherScript : MonoBehaviour
 
     private void Start()
     {
+        originCursorColor = cursor.GetComponent<MeshRenderer>().material.color;
         // start the ROS connection
         ros = ROSConnection.GetOrCreateInstance();
         var followOperationMode = gameObject.transform.Find("FollowMode").gameObject.GetComponent(typeof(OperationMode)) as FollowMode;
-
         ros.RegisterPublisher<PosRotMsg>(followOperationMode.topicName);
+
+        var armOperationMode = gameObject.transform.Find("ArmMode").gameObject.GetComponent(typeof(OperationMode)) as ArmMode;
+        ros.RegisterPublisher<PosRotMsg>(armOperationMode.topicName);
+
         ros.RegisterPublisher<IdMsg>(topicAnchorId);
 
     }
@@ -76,6 +80,7 @@ public class RosPublisherScript : MonoBehaviour
 
     public void ChangeMode(string mode)
     {
+        this.Terminate();
         this.mode = gameObject.transform.Find(mode).gameObject;
     }
 
