@@ -20,7 +20,7 @@ public class EyeGazeCursor : MonoBehaviour
         //CoreServices.InputSystem.EyeGazeProvider.GazeDirection.normalized * 0.5f;
         var pHit = CoreServices.InputSystem.EyeGazeProvider.HitPosition;
         var p = gameObject.transform.position;
-        if ((pHit-p).magnitude>=gameObject.transform.localScale.x)
-            gameObject.transform.position = CoreServices.InputSystem.EyeGazeProvider.HitPosition;
+        // if ((pHit-p).magnitude>=gameObject.transform.localScale.x)
+        gameObject.transform.position = CoreServices.InputSystem.EyeGazeProvider.HitPosition;
     }
 }

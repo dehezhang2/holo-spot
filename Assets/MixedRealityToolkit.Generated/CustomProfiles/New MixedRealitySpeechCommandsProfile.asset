@@ -79,3 +79,24 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Default Mode
+    keyCode: 112
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Follow Mode
+    keyCode: 111
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Arm Mode
+    keyCode: 105
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
