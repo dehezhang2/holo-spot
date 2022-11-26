@@ -64,6 +64,9 @@ namespace Accessiblecontrol
             this.sendPose = false;
         }
 
+        public bool isActivated(){
+            return this.sendPose;
+        }
 
     }
 

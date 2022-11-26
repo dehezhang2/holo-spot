@@ -74,6 +74,9 @@ namespace Accessiblecontrol
             //Destroy(visualizeHead);
         }
 
+        public bool isActivated(){
+            return this.sendPose;
+        }
 
     }
 

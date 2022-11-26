@@ -27,6 +27,9 @@ namespace Accessiblecontrol
         {
             return;
         }
+        public bool isActivated(){
+            return this.sendPose;
+        }
 
     }
 }

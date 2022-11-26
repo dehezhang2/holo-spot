@@ -64,18 +64,23 @@ public class RosPublisherScript : MonoBehaviour
 
     public void Activate()
     {
-
-        originCursorColor = cursor.GetComponent<MeshRenderer>().material.color;
-        cursor.GetComponent<MeshRenderer>().material.color = Color.green;
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
-        operationMode.Activate();
+        if(!operationMode.isActivated()){
+            originCursorColor = cursor.GetComponent<MeshRenderer>().material.color;
+            cursor.GetComponent<MeshRenderer>().material.color = Color.green;
+            operationMode.Activate();
+        }
+       
     }
 
     public void Terminate()
     {
-        cursor.GetComponent<MeshRenderer>().material.color = originCursorColor;
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
-        operationMode.Terminate();
+        if(operationMode.isActivated()){
+            cursor.GetComponent<MeshRenderer>().material.color = originCursorColor;
+            operationMode.Terminate();
+        }
+        
     }
 
     public void ChangeMode(string mode)
