@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,7 +162,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91481333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -371,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369719171}
   - component: {fileID: 369719172}
+  - component: {fileID: 369719173}
   m_Layer: 0
   m_Name: ArmMode
   m_TagString: Untagged
@@ -409,9 +410,58 @@ MonoBehaviour:
   virtualRobot: {fileID: 91481333}
   robotOffset: {x: 0, y: -1, z: -0.35}
   visualizationOffset: {x: 0, y: 0, z: 0.5}
+  ros_manager: {fileID: 0}
   MainCamera: {fileID: 963194225}
-  visualizeHead: {fileID: 0}
   topicName: hololens/arm_pos_rot
+  status_topicName: hololens/arm_status
+--- !u!114 &369719173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369719170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  keywords:
+  - keyword: Grasp
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719170}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Reset Arm
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719170}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  persistentKeywords: 0
+  speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!1 &416410299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eedbeae3e36d2347ba9570b5f03a595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ros: {fileID: 0}
   topicAnchorId: hololens/anchor_id
   cursor: {fileID: 416410299}
   mode: {fileID: 1276525343}
@@ -1085,6 +1136,7 @@ Transform:
   - {fileID: 1276525345}
   - {fileID: 1816740566}
   - {fileID: 369719171}
+  - {fileID: 1791517509}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1182,6 +1234,150 @@ MonoBehaviour:
             m_StringArgument: ArmMode
             m_BoolArgument: 0
           m_CallState: 2
+  - keyword: Select Mode
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: ChangeMode
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Sit
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Sit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: stand
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Stand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: claim
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Claim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: release
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Release
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: poweron
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Poweron
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: poweroff
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Poweroff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: rolloverleft
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Rolloverleft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: rolloverright
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Rolloverright
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!1 &1617928884
@@ -1229,6 +1425,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1791517508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791517509}
+  - component: {fileID: 1791517511}
+  - component: {fileID: 1791517510}
+  m_Layer: 0
+  m_Name: SelectMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1791517509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791517508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1464551860}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791517510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791517508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  keywords:
+  - keyword: Select Item
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1791517511}
+          m_TargetAssemblyTypeName: Accessiblecontrol.SelectMode, Assembly-CSharp
+          m_MethodName: SelectPos
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Delete Selection
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1791517511}
+          m_TargetAssemblyTypeName: Accessiblecontrol.SelectMode, Assembly-CSharp
+          m_MethodName: DeletePos
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  persistentKeywords: 0
+  speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
+--- !u!114 &1791517511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791517508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cbcae3685850a4e806b44641e363fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publishMessageFrequency: 0.5
+  cursor: {fileID: 416410299}
+  anchorManager: {fileID: 289050001}
+  visualizePosition: {fileID: 0}
+  topicName: hololens/pos_rot
+  status_topicName: hololens/select_status
 --- !u!1 &1816740565
 GameObject:
   m_ObjectHideFlags: 0

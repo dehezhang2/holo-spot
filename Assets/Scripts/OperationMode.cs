@@ -15,6 +15,9 @@ namespace Accessiblecontrol
 {
     public interface OperationMode
     {
+        //public bool isSelected();
+        public void selectMode();
+        public void deSelect();
         public bool isActivated();
         public void Activate();
         public void Terminate();
