@@ -60,18 +60,18 @@ namespace Accessiblecontrol
             virtualRobot.transform.position = MainCamera.transform.TransformPoint(robotOffset);
             virtualRobot.transform.rotation = MainCamera.transform.rotation;
 
-            visualizeHead = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            visualizeHead.transform.position = MainCamera.transform.TransformPoint(visualizationOffset);
-            visualizeHead.transform.rotation = MainCamera.transform.rotation;
-            visualizeHead.transform.localScale = Vector3.one * 0.1f;
-            visualizeHead.GetComponent<Collider>().enabled = false;
+            //visualizeHead = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //visualizeHead.transform.position = MainCamera.transform.TransformPoint(visualizationOffset);
+            //visualizeHead.transform.rotation = MainCamera.transform.rotation;
+            //visualizeHead.transform.localScale = Vector3.one * 0.1f;
+            //visualizeHead.GetComponent<Collider>().enabled = false;
 
             this.sendPose = true;
         }
         public void Terminate()
         {
             this.sendPose = false;
-            Destroy(visualizeHead);
+            //Destroy(visualizeHead);
         }
 
 
