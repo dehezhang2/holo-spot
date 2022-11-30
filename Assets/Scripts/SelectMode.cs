@@ -39,7 +39,7 @@ namespace Accessiblecontrol
                 {
                     if (position_selected)
                     {
-                        // activate => send item position
+                        //activate => send item position
                         List<GameObject> anchorList = anchorManager.GetComponent<AzureSpatialAnchorsScript>().getAnchorList();
                         GameObject anchor = anchorList[0];
                         Vector3 sentPosition = anchor.transform.InverseTransformPoint(position);
@@ -55,7 +55,6 @@ namespace Accessiblecontrol
                                      0f,
                                      1f
                                  );
-                        ros.Publish(topicName, cursorPos);
                     }
                 } else
                 {

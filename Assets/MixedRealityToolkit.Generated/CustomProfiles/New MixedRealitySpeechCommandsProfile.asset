@@ -67,14 +67,14 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Activate
-    keyCode: 0
+    keyCode: 121
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Terminate
-    keyCode: 0
+    keyCode: 103
     action:
       id: 0
       description: None
@@ -102,14 +102,14 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Select Mode
-    keyCode: 0
+    keyCode: 118
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Select Item
-    keyCode: 0
+    keyCode: 116
     action:
       id: 0
       description: None

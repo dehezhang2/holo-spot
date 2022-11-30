@@ -45,11 +45,11 @@ public class RosPublisherScript : MonoBehaviour
 
         var armOperationMode = gameObject.transform.Find("ArmMode").gameObject.GetComponent(typeof(OperationMode)) as ArmMode;
         ros.RegisterPublisher<PosRotMsg>(armOperationMode.topicName);
-        ros.RegisterPublisher<PosRotMsg>(armOperationMode.status_topicName);
+        ros.RegisterPublisher<IdMsg>(armOperationMode.status_topicName);
 
         var selectOperationMode = gameObject.transform.Find("SelectMode").gameObject.GetComponent(typeof(OperationMode)) as SelectMode;
         ros.RegisterPublisher<PosRotMsg>(selectOperationMode.topicName);
-        ros.RegisterPublisher<PosRotMsg>(selectOperationMode.status_topicName);
+        ros.RegisterPublisher<IdMsg>(selectOperationMode.status_topicName);
 
         ros.RegisterPublisher<IdMsg>(topicAnchorId);
 

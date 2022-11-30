@@ -1378,6 +1378,22 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
+  - keyword: selfright
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Selfright
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!1 &1617928884
@@ -1521,7 +1537,7 @@ MonoBehaviour:
   cursor: {fileID: 416410299}
   anchorManager: {fileID: 289050001}
   visualizePosition: {fileID: 0}
-  topicName: hololens/pos_rot
+  topicName: hololens/select_pos_rot
   status_topicName: hololens/select_status
 --- !u!1 &1816740565
 GameObject:
