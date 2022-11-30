@@ -20,11 +20,14 @@ namespace Accessiblecontrol
         public GameObject virtualRobot;
         public Vector3 robotOffset;
         public Vector3 visualizationOffset;
+        public GameObject ros_manager;
 
         public GameObject MainCamera;
-        public GameObject visualizeHead;
         private bool sendPose = false;
+        private bool isSelected = false;
+        private bool isGrasping = false;
         public string topicName = "hololens/arm_pos_rot";
+        public string status_topicName = "hololens/arm_status";
 
         public void SendPose(ROSConnection ros, ref float timeElapsed)
         {
@@ -48,9 +51,6 @@ namespace Accessiblecontrol
                 ros.Publish(topicName, headPos);
                 timeElapsed = 0f;
             }
-            if (sendPose) {
-                visualizeHead.transform.rotation = headTracker.transform.rotation;
-            }
 
         }
 
@@ -60,21 +60,63 @@ namespace Accessiblecontrol
             virtualRobot.transform.position = MainCamera.transform.TransformPoint(robotOffset);
             virtualRobot.transform.rotation = MainCamera.transform.rotation;
 
-            visualizeHead = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            visualizeHead.transform.position = MainCamera.transform.TransformPoint(visualizationOffset);
-            visualizeHead.transform.rotation = MainCamera.transform.rotation;
-            visualizeHead.transform.localScale = Vector3.one * 0.1f;
-            visualizeHead.GetComponent<Collider>().enabled = false;
+            //visualizeHead = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //visualizeHead.transform.position = MainCamera.transform.TransformPoint(visualizationOffset);
+            //visualizeHead.transform.rotation = MainCamera.transform.rotation;
+            //visualizeHead.transform.localScale = Vector3.one * 0.1f;
+            //visualizeHead.GetComponent<Collider>().enabled = false;
 
             this.sendPose = true;
         }
         public void Terminate()
         {
             this.sendPose = false;
-            Destroy(visualizeHead);
+            //Destroy(visualizeHead);
         }
 
+        public bool isActivated(){
+            return this.sendPose;
+        }
 
+        public void selectMode()
+        {
+            this.isSelected = true;
+        }
+
+        public void deSelect()
+        {
+            this.isSelected = false;
+        }
+        
+        public void Grasp()
+        {
+            if (this.isSelected)
+            {
+                ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
+                if (!isGrasping)
+                {
+                    IdMsg msg = new IdMsg("open hand");
+                    ros.Publish(status_topicName, msg);
+                }
+                else
+                {
+                    IdMsg msg = new IdMsg("close hand");
+                    ros.Publish(status_topicName, msg);
+                }
+                isGrasping = !isGrasping;
+            }
+           
+        }
+
+        public void ResetArm()
+        {
+            if (this.isSelected)
+            {
+                ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
+                IdMsg msg = new IdMsg("reset");
+                ros.Publish(status_topicName, msg);
+            }
+        }
     }
 
 }

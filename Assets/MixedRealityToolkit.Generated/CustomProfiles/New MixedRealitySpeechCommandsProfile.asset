@@ -53,49 +53,154 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Create Anchor
-    keyCode: 110
+    keyCode: 0
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Delete Anchor
-    keyCode: 109
+    keyCode: 0
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Activate
-    keyCode: 107
+    keyCode: 121
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Terminate
-    keyCode: 108
+    keyCode: 103
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Default Mode
-    keyCode: 112
+    keyCode: 0
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Follow Mode
-    keyCode: 111
+    keyCode: 0
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Arm Mode
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Select Mode
+    keyCode: 118
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Select Item
+    keyCode: 116
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Delete Selection
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Grasp
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Reset Arm
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Sit
     keyCode: 105
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: stand
+    keyCode: 111
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: claim
+    keyCode: 112
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: release
+    keyCode: 106
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: poweron
+    keyCode: 107
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: poweroff
+    keyCode: 108
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: stop
+    keyCode: 98
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: selfright
+    keyCode: 110
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: rolloverleft
+    keyCode: 109
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: rolloverright
+    keyCode: 104
     action:
       id: 0
       description: None
