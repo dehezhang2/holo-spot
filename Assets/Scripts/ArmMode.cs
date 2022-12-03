@@ -110,11 +110,15 @@ namespace Accessiblecontrol
                 {
                     IdMsg msg = new IdMsg("open hand");
                     ros.Publish(status_topicName, msg);
+                    TriggerRequest trigger = new TriggerRequest();
+                    ros.SendServiceMessage<TriggerResponse>("/spot/gripper_open", trigger, nothing);
                 }
                 else
                 {
                     IdMsg msg = new IdMsg("close hand");
                     ros.Publish(status_topicName, msg);
+                    TriggerRequest trigger = new TriggerRequest();
+                    ros.SendServiceMessage<TriggerResponse>("/spot/gripper_close", trigger, nothing);
                 }
                 isGrasping = !isGrasping;
             }

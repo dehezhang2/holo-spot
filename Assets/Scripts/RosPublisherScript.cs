@@ -69,6 +69,9 @@ public class RosPublisherScript : MonoBehaviour
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/roll_over_left");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/roll_over_right");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/stop");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/arm_stow");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/gripper_open");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/gripper_close");
     }
 
     private void Update()
@@ -211,8 +214,8 @@ public class RosPublisherScript : MonoBehaviour
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
         if (!operationMode.isActivated())
         {
-            IdMsg msg = new IdMsg("reset");
-            //ros.Publish(status_topicName, msg);
+            TriggerRequest trigger = new TriggerRequest();
+            ros.SendServiceMessage<TriggerResponse>("/spot/arm_stow", trigger, nothing);
         }
     }
     public void VisualizeOn()
