@@ -21,13 +21,13 @@ public class CameraSubscriber : MonoBehaviour
     public float angleToRotate = 0;
     public bool isRotateMsgReceived;
     void Start()
-    {   
+    {
         ros = ROSConnection.GetOrCreateInstance();
         ros.Subscribe<CompressedImage>("/spot/camera/hand_color/compressed", ShowImage);
         ros.Subscribe<JointStateMsg>("/joint_states", ChangeImagePlaneAngle);
         texture2D = new Texture2D(640, 480);
         gameObject.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
-        
+
         gameObject.transform.localPosition = localPos;
         gameObject.transform.localRotation = localRotation;
     }
@@ -44,14 +44,14 @@ public class CameraSubscriber : MonoBehaviour
             currentImgAngle = currentImgAngle + angleToRotate;
             isRotateMsgReceived = false;
         }
-        
+
     }
 
     void ShowImage(CompressedImage ImgMsg)
-    {       
+    {
         imageData = ImgMsg.data;
         isMessageReceived = true;
-        Debug.Log(ImgMsg.format);     
+        Debug.Log(ImgMsg.format);
     }
 
     void ProcessImage()
@@ -63,9 +63,9 @@ public class CameraSubscriber : MonoBehaviour
     }
 
     void ChangeImagePlaneAngle(JointStateMsg jointState) {
-        float handAngle = (float) (jointState.position[jointState.position.Length - 2] * 180.0 / Math.PI) ;
+        float handAngle = (float)((jointState.position[jointState.position.Length - 2] + Math.PI / 2) * 180.0 / Math.PI);
         angleToRotate = handAngle - currentImgAngle;
-        if (angleToRotate > 3) {
+        if (angleToRotate > 3 || angleToRotate < -3) {
             isRotateMsgReceived = true;
         }
         
