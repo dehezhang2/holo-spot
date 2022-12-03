@@ -28,11 +28,16 @@ public class RosPublisherScript : MonoBehaviour
     // The game objects
     public GameObject cursor;
     public GameObject mode;
+    public GameObject visualizePlane;
+    public GameObject anchorManager;
+    public GameObject mainCamera;
+    public string comeHereTopicName = "hololens/come_here";
 
     // Used to determine how much time has elapsed since the last message was published
     private float timeElapsed = 0f;
     //Store original cursor color
     private Color originCursorColor;
+  
 
     private void Start()
     {
@@ -47,11 +52,12 @@ public class RosPublisherScript : MonoBehaviour
         ros.RegisterPublisher<PosRotMsg>(armOperationMode.topicName);
         ros.RegisterPublisher<IdMsg>(armOperationMode.status_topicName);
 
-        var selectOperationMode = gameObject.transform.Find("SelectMode").gameObject.GetComponent(typeof(OperationMode)) as SelectMode;
-        ros.RegisterPublisher<PosRotMsg>(selectOperationMode.topicName);
-        ros.RegisterPublisher<IdMsg>(selectOperationMode.status_topicName);
+        // var selectOperationMode = gameObject.transform.Find("SelectMode").gameObject.GetComponent(typeof(OperationMode)) as SelectMode;
+        // ros.RegisterPublisher<PosRotMsg>(selectOperationMode.topicName);
 
         ros.RegisterPublisher<IdMsg>(topicAnchorId);
+
+        ros.RegisterPublisher<PosRotMsg>(comeHereTopicName);
 
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/sit");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/stand");
@@ -63,6 +69,9 @@ public class RosPublisherScript : MonoBehaviour
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/roll_over_left");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/roll_over_right");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/stop");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/arm_stow");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/gripper_open");
+        ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/gripper_close");
     }
 
     private void Update()
@@ -200,13 +209,55 @@ public class RosPublisherScript : MonoBehaviour
         }
     }
 
-    public void Stop()
+    public void ResetArm()
     {
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
         if (!operationMode.isActivated())
         {
             TriggerRequest trigger = new TriggerRequest();
-            ros.SendServiceMessage<TriggerResponse>("/spot/stop", trigger, nothing);
+            ros.SendServiceMessage<TriggerResponse>("/spot/arm_stow", trigger, nothing);
+        }
+    }
+    public void VisualizeOn()
+    {
+        visualizePlane.active = true;
+    }
+    public void VisualizeOff()
+    {
+        visualizePlane.active = false;
+    }
+    //public void Stop()
+    //{
+    //    var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
+    //    if (!operationMode.isActivated())
+    //    {
+    //        TriggerRequest trigger = new TriggerRequest();
+    //        ros.SendServiceMessage<TriggerResponse>("/spot/stop", trigger, nothing);
+    //    }
+    //}
+
+    public void ComeHere()
+    {
+        var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
+        if (!operationMode.isActivated())
+        {
+            List<GameObject> anchorList = anchorManager.GetComponent<AzureSpatialAnchorsScript>().getAnchorList();
+            GameObject anchor = anchorList[0];
+            Vector3 position = mainCamera.transform.position;
+            Vector3 sentPosition = anchor.transform.InverseTransformPoint(position);
+            sentPosition.Scale(anchor.transform.localScale);
+
+            PosRotMsg cursorPos = new PosRotMsg(
+                         anchorList[0].GetComponent<CloudNativeAnchor>().CloudAnchor.Identifier,
+                         sentPosition.z,
+                         -sentPosition.x,
+                         sentPosition.y,
+                         0f,
+                         0f,
+                         0f,
+                         1f
+                     );
+            ros.Publish(comeHereTopicName, cursorPos);
         }
     }
 

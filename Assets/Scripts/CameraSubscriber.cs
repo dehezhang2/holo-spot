@@ -20,6 +20,7 @@ public class CameraSubscriber : MonoBehaviour
     private float currentImgAngle = 0;
     public float angleToRotate = 0;
     public bool isRotateMsgReceived;
+    public bool activated = false;
     void Start()
     {
         ros = ROSConnection.GetOrCreateInstance();
@@ -68,6 +69,5 @@ public class CameraSubscriber : MonoBehaviour
         if (angleToRotate > 3 || angleToRotate < -3) {
             isRotateMsgReceived = true;
         }
-        
     }
 }
