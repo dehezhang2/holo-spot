@@ -11,6 +11,8 @@ using Microsoft.MixedReality.Toolkit;
 using UnityEngine.Events;
 using Accessiblecontrol;
 
+using RosMessageTypes.Std;
+
 namespace Accessiblecontrol
 {
     public class ArmMode : MonoBehaviour, OperationMode
@@ -23,34 +25,43 @@ namespace Accessiblecontrol
         public GameObject ros_manager;
 
         public GameObject MainCamera;
-        private bool sendPose = false;
+        private bool activated = false;
         private bool isSelected = false;
         private bool isGrasping = false;
+        private bool sendMsg = false;
         public string topicName = "hololens/arm_pos_rot";
         public string status_topicName = "hololens/arm_status";
 
         public void SendPose(ROSConnection ros, ref float timeElapsed)
         {
-
-            if (sendPose && timeElapsed > publishMessageFrequency)
+            if (sendMsg)
             {
-                Vector3 sentPosition = headTracker.transform.localPosition;
+                if (activated && timeElapsed > publishMessageFrequency)
+                {
+                    Vector3 sentPosition = headTracker.transform.localPosition;
 
-                sentPosition.Scale(virtualRobot.transform.localScale);
+                    sentPosition.Scale(virtualRobot.transform.localScale);
 
-                PosRotMsg headPos = new PosRotMsg(
-                             "body",
-                             sentPosition.z,
-                             -sentPosition.x,
-                             sentPosition.y,
-                             -headTracker.transform.localRotation.z,
-                             headTracker.transform.localRotation.x,
-                             -headTracker.transform.localRotation.y,
-                             headTracker.transform.localRotation.w
-                         );
-                ros.Publish(topicName, headPos);
-                timeElapsed = 0f;
+                    PosRotMsg headPos = new PosRotMsg(
+                                 "body",
+                                 sentPosition.z,
+                                 -sentPosition.x,
+                                 sentPosition.y,
+                                 -headTracker.transform.localRotation.z,
+                                 headTracker.transform.localRotation.x,
+                                 -headTracker.transform.localRotation.y,
+                                 headTracker.transform.localRotation.w
+                             );
+                    ros.Publish(topicName, headPos);
+                    timeElapsed = 0f;
+                } else
+                {
+                    TriggerRequest trigger = new TriggerRequest();
+                    ros.SendServiceMessage<TriggerResponse>("/spot/stop", trigger, nothing);
+                    sendMsg = false;
+                }
             }
+            
 
         }
 
@@ -66,16 +77,18 @@ namespace Accessiblecontrol
             //visualizeHead.transform.localScale = Vector3.one * 0.1f;
             //visualizeHead.GetComponent<Collider>().enabled = false;
 
-            this.sendPose = true;
+            this.activated = true;
+            this.sendMsg = true;
         }
         public void Terminate()
         {
-            this.sendPose = false;
+            this.activated = false;
+            this.sendMsg = true;
             //Destroy(visualizeHead);
         }
 
         public bool isActivated(){
-            return this.sendPose;
+            return this.activated;
         }
 
         public void selectMode()
@@ -108,14 +121,19 @@ namespace Accessiblecontrol
            
         }
 
-        public void ResetArm()
+        //public void ResetArm()
+        //{
+        //    if (this.isSelected)
+        //    {
+        //        ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
+        //        IdMsg msg = new IdMsg("reset");
+        //        ros.Publish(status_topicName, msg);
+        //    }
+        //}
+
+        private void nothing(TriggerResponse response)
         {
-            if (this.isSelected)
-            {
-                ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
-                IdMsg msg = new IdMsg("reset");
-                ros.Publish(status_topicName, msg);
-            }
+
         }
     }
 

@@ -11,6 +11,7 @@ using Microsoft.MixedReality.Toolkit;
 using UnityEngine.Events;
 using Accessiblecontrol;
 
+using RosMessageTypes.Std;
 namespace Accessiblecontrol
 {
     public class SelectMode : MonoBehaviour, OperationMode
@@ -21,13 +22,11 @@ namespace Accessiblecontrol
 
         private Vector3 position;
         public GameObject visualizePosition;
-        // 0 for terminate, 1 for activate, 2 for activate but message is already sent
         private bool sendMsg = false;
         private bool activated = false;
         private bool position_selected = false;
         private bool isSelected = false;
-        public string topicName = "hololens/select_pos_rot";
-        public string status_topicName = "hololens/select_status";
+        public string topicName = "hololens/pos_rot";
 
 
         public void SendPose(ROSConnection ros, ref float timeElapsed)
@@ -55,13 +54,15 @@ namespace Accessiblecontrol
                                      0f,
                                      1f
                                  );
+                        ros.Publish(topicName, cursorPos);
                     }
                 } else
                 {
                     // send stop msg
-                    IdMsg msg_stop = new IdMsg("stop");
-                    ros.Publish(status_topicName, msg_stop);
-
+                    //IdMsg msg_stop = new IdMsg("stop");
+                    //ros.Publish(status_topicName, msg_stop);
+                    TriggerRequest trigger = new TriggerRequest();
+                    ros.SendServiceMessage<TriggerResponse>("/spot/stop", trigger, nothing);
                 }
                 sendMsg = false;
             }
@@ -127,7 +128,10 @@ namespace Accessiblecontrol
             DeletePos();
             this.isSelected = false;
         }
+        private void nothing(TriggerResponse response)
+        {
 
+        }
     }
 
 }

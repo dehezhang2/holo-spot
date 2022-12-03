@@ -164,42 +164,56 @@ MonoBehaviour:
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: poweron
+    keyword: power on
     keyCode: 107
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: poweroff
+    keyword: power off
     keyCode: 108
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: stop
-    keyCode: 98
-    action:
-      id: 0
-      description: None
-      axisConstraint: 0
-  - localizationKey: 
-    keyword: selfright
+    keyword: self right
     keyCode: 110
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: rolloverleft
+    keyword: roll over left
     keyCode: 109
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: rolloverright
+    keyword: roll over right
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Visualize On
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Visualize Off
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Come Here
     keyCode: 104
     action:
       id: 0

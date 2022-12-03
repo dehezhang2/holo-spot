@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,7 +410,7 @@ MonoBehaviour:
   virtualRobot: {fileID: 91481333}
   robotOffset: {x: 0, y: -1, z: -0.35}
   visualizationOffset: {x: 0, y: 0, z: 0.5}
-  ros_manager: {fileID: 0}
+  ros_manager: {fileID: 1464551858}
   MainCamera: {fileID: 963194225}
   topicName: hololens/arm_pos_rot
   status_topicName: hololens/arm_status
@@ -429,22 +429,6 @@ MonoBehaviour:
   isFocusRequired: 0
   keywords:
   - keyword: Grasp
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 369719170}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - keyword: Reset Arm
     response:
       m_PersistentCalls:
         m_Calls:
@@ -1123,6 +1107,10 @@ MonoBehaviour:
   topicAnchorId: hololens/anchor_id
   cursor: {fileID: 416410299}
   mode: {fileID: 1276525343}
+  visualizePlane: {fileID: 1917651584}
+  anchorManager: {fileID: 289050001}
+  mainCamera: {fileID: 963194225}
+  comeHereTopicName: hololens/come_here
 --- !u!4 &1464551860
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,7 +1303,7 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: poweron
+  - keyword: power on
     response:
       m_PersistentCalls:
         m_Calls:
@@ -1331,7 +1319,7 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: poweroff
+  - keyword: power off
     response:
       m_PersistentCalls:
         m_Calls:
@@ -1347,7 +1335,7 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: rolloverleft
+  - keyword: roll over left
     response:
       m_PersistentCalls:
         m_Calls:
@@ -1363,7 +1351,7 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: rolloverright
+  - keyword: roll over right
     response:
       m_PersistentCalls:
         m_Calls:
@@ -1379,13 +1367,77 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: selfright
+  - keyword: self right
     response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1464551859}
           m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
           m_MethodName: Selfright
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Reset Arm
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: ResetArm
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Visualize On
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: VisualizeOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Visualize Off
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: VisualizeOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Come Here
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: ComeHere
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1539,7 +1591,6 @@ MonoBehaviour:
   anchorManager: {fileID: 289050001}
   visualizePosition: {fileID: 0}
   topicName: hololens/select_pos_rot
-  status_topicName: hololens/select_status
 --- !u!1 &1816740565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1917651585
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1699,6 +1750,7 @@ MonoBehaviour:
   localRotation: {x: -0.00000003090862, y: 0.70710677, z: -0.70710677, w: -0.00000003090862}
   angleToRotate: 0
   isRotateMsgReceived: 0
+  activated: 0
 --- !u!1001 &2110201699
 PrefabInstance:
   m_ObjectHideFlags: 0
