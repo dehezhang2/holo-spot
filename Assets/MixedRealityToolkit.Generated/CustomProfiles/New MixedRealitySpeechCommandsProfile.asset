@@ -219,3 +219,17 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Help On
+    keyCode: 98
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Help Off
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,246 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &81014764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 963194228}
+    m_Modifications:
+    - target: {fileID: 959926566358499014, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 670
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805602545041667783, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805602545041667783, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805602545041667783, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 625.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805602545041667783, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 312.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805602545041667783, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532384224428589711, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_text
+      value: '<size=42><b>Useful Voice Commands<b></size>
+
+        <size=35><b>Set
+        Up the Robot<b></size>
+
+        Say: <b>"claim", "power on", "self right",
+        "stand"</b>
+
+        <size=35><b>Follow Mode<b></size>
+
+        Say: <b>"follow
+        mode"</b> to enter the mode.
+
+        Say: <b>"activate"<b/> and you can
+        control the robot movement using your eye movement.
+
+        <size=35><b>Select
+        Mode<b></size>
+
+        Say: <b>"select mode"<b> to enter the mode.
+
+        Say:
+        <b>"select item"<b> to select a target position.
+
+        Say: <b>"Activate"<b>
+        to let the robot go to the target.
+
+        <size=35><b>Arm Mode<b></size>
+
+        Say
+        <b>"arm mode"<b> to enter the mode.
+
+        Say: <b>"activate"</b> and
+        move you can control the robot arm using head motion.
+
+        Say: <b>"grasp"</b>
+        to open the grasper and grasp things.
+
+        Say: <b>"grasp"</b> again
+        to close the grasper and grasp things.
+
+        Say: <b>"terminate"</b>
+        again to close the grasper and grasp things.
+
+        Say: <b>"reset arm"</b>
+        to reset arm position.
+
+        <size=35><b>Simple Robot Manipulation<b></size>
+
+        Say:
+        <b>"come here"</b> and the robot will come to your side.
+
+        <size=35><b>Settle
+        Down the Robot<b></size>
+
+        Check all the things are reset, e.g. the
+        grasper, and the arm.
+
+        Say: <b>"Sit,roll ove left/right, power off,
+        release" to close the spot robot
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179237747813866, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179237747813868, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_text
+      value: Help Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179237747813868, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179237747813868, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564666, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_Name
+      value: SceneDescriptionPanelRev Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564666, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.2674329
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179238591971589, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179239054771216, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339179239374133373, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902861136616217541, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902861136616217541, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902861136616217541, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 364.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902861136616217541, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -330
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746150098167127626, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199258688711521767, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199258688711521767, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199258688711521767, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 625.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199258688711521767, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199258688711521767, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -600
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+--- !u!4 &81014765 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5339179238457564667, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+  m_PrefabInstance: {fileID: 81014764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &81014766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5339179238457564666, guid: 2cafebe206a4bb44291a3eec342944cc, type: 3}
+  m_PrefabInstance: {fileID: 81014764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81014767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81014766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e65487a337ba748a9483fb55a01c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &91481333
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +1091,8 @@ GameObject:
   - component: {fileID: 963194232}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194234}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -921,6 +1163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1917651588}
+  - {fileID: 81014765}
   m_Father: {fileID: 1393822148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -999,6 +1242,67 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30695203416a7a4dbb17b861844b9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helpPanel: {fileID: 81014766}
+--- !u!114 &963194234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 1
+  keywords:
+  - keyword: Help On
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 963194233}
+          m_TargetAssemblyTypeName: CommandPanelControl, Assembly-CSharp
+          m_MethodName: helpOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Help Off
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 963194233}
+          m_TargetAssemblyTypeName: CommandPanelControl, Assembly-CSharp
+          m_MethodName: helpOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  persistentKeywords: 0
+  speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!1 &1276525343
 GameObject:
   m_ObjectHideFlags: 0
