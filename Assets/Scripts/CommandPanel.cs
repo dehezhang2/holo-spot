@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CommandPanel : MonoBehaviour
 {
-    private Vector3 localPos = new Vector3(1.0f, 1.0f, 1.0f);
+    private Vector3 localPos = new Vector3(0.0f, 0.5f, 1.2f);
     // Start is called before the first frame update
     void Start()
     {

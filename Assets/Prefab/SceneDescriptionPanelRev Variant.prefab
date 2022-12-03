@@ -75,37 +75,74 @@ PrefabInstance:
       propertyPath: m_text
       value: '<size=42><b>Useful Voice Commands<b></size>
 
-        <size=35><b>Follow
+        <size=35><b>Set
+        Up the Robot<b></size>
+
+        Say: <b>"claim", "power on", "self right",
+        "stand"</b>
+
+        <size=35><b>Follow Mode<b></size>
+
+        Say: <b>"follow
+        mode"</b> to enter the mode.
+
+        Say: <b>"activate"<b> and you can
+        control the robot movement using your eye movement.
+
+        <size=35><b>Select
         Mode<b></size>
 
-        Say <b>"follow"</b> and move your eye to control
-        the robot movement.
+        Say: <b>"select mode"<b> to enter the mode.
 
-        <size=35><b>Select Mode<b></size>
+        Say:
+        <b>"select item"<b> to select a target position.
+
+        Say: <b>"Activate"<b>
+        to let the robot go to the target.
+
+        <size=35><b>Arm Mode<b></size>
 
         Say
-        <b>"select"</b> to enter the mode.
+        <b>"arm mode"<b> to enter the mode.
 
-        Say <b>"select"</b> to select
-        a target position.
+        Say: <b>"activate"</b> and
+        move you can control the robot arm using head motion.
 
-        Say <b>"xx"</b> to let the robot go there.
+        Say: <b>"grasp"</b>
+        to open the grasper and grasp things.
 
-        <size=35><b>Arm
-        Mode<b></size>
+        Say: <b>"grasp"</b> again
+        to close the grasper and grasp things.
 
-        Say <b>"arm mode"</b> and move your head to control
-        the robot arm.
+        Say: <b>"terminate"</b>
+        again to close the grasper and grasp things.
 
-        Say <b>"xx"</b> to grasp things.
+        Say: <b>"reset arm"</b>
+        to reset arm position.
 
-        <size=35><b>Come
-        Here Mode<b></size>
+        <size=35><b>Simple Robot Manipulation<b></size>
 
-        Say <b>"come here"</b> and the robot will go
-        back to your side.
+        Say:
+        <b>"come here"</b> and the robot will come to your side.
+
+        <size=35><b>Settle
+        Down the Robot<b></size>
+
+        Check all the things are reset, e.g. the
+        grasper, and the arm.
+
+        Say: <b>"Sit,roll ove left/right, power off,
+        release" to close the spot robot
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113875699234556495, guid: 18470d71939382448be2ecd06efa9662, type: 3}
+      propertyPath: m_margin.x
+      value: -34.484104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113875699234556495, guid: 18470d71939382448be2ecd06efa9662, type: 3}
+      propertyPath: m_margin.z
+      value: -73.5733
       objectReference: {fileID: 0}
     - target: {fileID: 2113875699234556495, guid: 18470d71939382448be2ecd06efa9662, type: 3}
       propertyPath: m_textAlignment
@@ -140,16 +177,24 @@ PrefabInstance:
       value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 2652140712778390387, guid: 18470d71939382448be2ecd06efa9662, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8069698
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652140712778390387, guid: 18470d71939382448be2ecd06efa9662, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.64040697
+      value: 1.0103692
       objectReference: {fileID: 0}
     - target: {fileID: 2652140712778390387, guid: 18470d71939382448be2ecd06efa9662, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.256
+      value: -0.445
       objectReference: {fileID: 0}
     - target: {fileID: 3378234012929652230, guid: 18470d71939382448be2ecd06efa9662, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378234012929652230, guid: 18470d71939382448be2ecd06efa9662, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 5245681700994389642, guid: 18470d71939382448be2ecd06efa9662, type: 3}
       propertyPath: m_Mesh
