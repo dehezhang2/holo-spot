@@ -32,6 +32,7 @@ public class RosPublisherScript : MonoBehaviour
     public GameObject anchorManager;
     public GameObject mainCamera;
     public string comeHereTopicName = "hololens/come_here";
+    //public string arm_status_topicName = "hololens/arm_status";
 
     // Used to determine how much time has elapsed since the last message was published
     private float timeElapsed = 0f;

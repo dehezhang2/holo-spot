@@ -30,26 +30,29 @@ namespace Accessiblecontrol
         {
             if (sendMsg)
             {
-                if (activated && timeElapsed > publishMessageFrequency)
+                if (activated)
                 {
-                    List<GameObject> anchorList = anchorManager.GetComponent<AzureSpatialAnchorsScript>().getAnchorList();
-                    GameObject anchor = anchorList[0];
-                    Vector3 sentPosition = anchor.transform.InverseTransformPoint(cursor.transform.position);
-                    sentPosition.Scale(anchor.transform.localScale);
+                    if (timeElapsed > publishMessageFrequency)
+                    {
+                        List<GameObject> anchorList = anchorManager.GetComponent<AzureSpatialAnchorsScript>().getAnchorList();
+                        GameObject anchor = anchorList[0];
+                        Vector3 sentPosition = anchor.transform.InverseTransformPoint(cursor.transform.position);
+                        sentPosition.Scale(anchor.transform.localScale);
 
-                    PosRotMsg cursorPos = new PosRotMsg(
-                                 anchorList[0].GetComponent<CloudNativeAnchor>().CloudAnchor.Identifier,
-                                 sentPosition.z,
-                                 -sentPosition.x,
-                                 sentPosition.y,
-                                 0f,
-                                 0f,
-                                 0f,
-                                 1f
-                             );
-                    ros.Publish(topicName, cursorPos);
+                        PosRotMsg cursorPos = new PosRotMsg(
+                                     anchorList[0].GetComponent<CloudNativeAnchor>().CloudAnchor.Identifier,
+                                     sentPosition.z,
+                                     -sentPosition.x,
+                                     sentPosition.y,
+                                     0f,
+                                     0f,
+                                     0f,
+                                     1f
+                                 );
+                        ros.Publish(topicName, cursorPos);
 
-                    timeElapsed = 0f;
+                        timeElapsed = 0f;
+                    }
                 }
                 else
                 {

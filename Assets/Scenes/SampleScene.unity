@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -432,13 +432,45 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 369719170}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 369719172}
+          m_TargetAssemblyTypeName: Accessiblecontrol.ArmMode, Assembly-CSharp
+          m_MethodName: Grasp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: rotate hand
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719172}
+          m_TargetAssemblyTypeName: Accessiblecontrol.ArmMode, Assembly-CSharp
+          m_MethodName: RotateHand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: stop rotate hand
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719172}
+          m_TargetAssemblyTypeName: Accessiblecontrol.ArmMode, Assembly-CSharp
+          m_MethodName: StopRotate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -834,7 +866,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: -90}
 --- !u!1 &963194225
 GameObject:
@@ -1748,7 +1780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localRotation: {x: -0.00000003090862, y: 0.70710677, z: -0.70710677, w: -0.00000003090862}
-  angleToRotate: 0
   isRotateMsgReceived: 0
   activated: 0
 --- !u!1001 &2110201699
@@ -2121,7 +2152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1125107583525690298, guid: 7dfe5484b672dd74b80ad8956e19a20f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1125107583525690298, guid: 7dfe5484b672dd74b80ad8956e19a20f, type: 3}
       propertyPath: m_LocalPosition.x
