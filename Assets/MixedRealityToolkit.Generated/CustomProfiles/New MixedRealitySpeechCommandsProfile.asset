@@ -95,14 +95,14 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Arm Mode
-    keyCode: 0
+    keyCode: 107
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Select Mode
-    keyCode: 118
+    keyCode: 0
     action:
       id: 0
       description: None
@@ -123,14 +123,14 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Grasp
-    keyCode: 0
+    keyCode: 118
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
     keyword: Reset Arm
-    keyCode: 0
+    keyCode: 114
     action:
       id: 0
       description: None
@@ -165,7 +165,7 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: power on
-    keyCode: 107
+    keyCode: 0
     action:
       id: 0
       description: None
@@ -200,7 +200,7 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Visualize On
-    keyCode: 0
+    keyCode: 104
     action:
       id: 0
       description: None
@@ -214,7 +214,21 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Come Here
-    keyCode: 104
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: rotate hand
+    keyCode: 0
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: stop rotate hand
+    keyCode: 0
     action:
       id: 0
       description: None

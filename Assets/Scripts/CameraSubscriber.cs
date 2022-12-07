@@ -17,8 +17,8 @@ public class CameraSubscriber : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 localPos = new Vector3(0.22f, 0.1f, 1f);
     public Quaternion localRotation = Quaternion.Euler(90, 180, 0);
-    private float currentImgAngle = 0;
-    public float angleToRotate = 0;
+    private float currentImgAngle;
+    private float handAngle;
     public bool isRotateMsgReceived;
     public bool activated = false;
     void Start()
@@ -37,13 +37,17 @@ public class CameraSubscriber : MonoBehaviour
     {
         if (isMessageReceived)
             ProcessImage();
-        gameObject.transform.localPosition = localPos;
-        gameObject.transform.localRotation = localRotation;
-        if (isRotateMsgReceived) {
-            gameObject.transform.Rotate(0, angleToRotate, 0, Space.Self);
+            gameObject.transform.localPosition = localPos;
+        if (isRotateMsgReceived)
+        {
+            gameObject.transform.localRotation = Quaternion.Euler(90 - handAngle, -90, -270);
             localRotation = gameObject.transform.localRotation;
-            currentImgAngle = currentImgAngle + angleToRotate;
+            currentImgAngle = handAngle;
             isRotateMsgReceived = false;
+        }
+        else 
+        { 
+            gameObject.transform.localRotation = localRotation; 
         }
 
     }
@@ -64,8 +68,8 @@ public class CameraSubscriber : MonoBehaviour
     }
 
     void ChangeImagePlaneAngle(JointStateMsg jointState) {
-        float handAngle = (float)((jointState.position[jointState.position.Length - 2] + Math.PI / 2) * 180.0 / Math.PI);
-        angleToRotate = handAngle - currentImgAngle;
+        handAngle = (float)((jointState.position[jointState.position.Length - 1]) * 180.0 / Math.PI);
+        float angleToRotate = handAngle - currentImgAngle;
         if (angleToRotate > 3 || angleToRotate < -3) {
             isRotateMsgReceived = true;
         }

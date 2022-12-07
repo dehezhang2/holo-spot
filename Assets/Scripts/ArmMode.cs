@@ -36,28 +36,37 @@ namespace Accessiblecontrol
         {
             if (sendMsg)
             {
-                if (activated && timeElapsed > publishMessageFrequency)
+                if (activated)
                 {
-                    Vector3 sentPosition = headTracker.transform.localPosition;
+                    if (timeElapsed > publishMessageFrequency)
+                    {
+                        Vector3 sentPosition = headTracker.transform.localPosition;
 
-                    sentPosition.Scale(virtualRobot.transform.localScale);
+                        sentPosition.Scale(virtualRobot.transform.localScale);
 
-                    PosRotMsg headPos = new PosRotMsg(
-                                 "body",
-                                 sentPosition.z,
-                                 -sentPosition.x,
-                                 sentPosition.y,
-                                 -headTracker.transform.localRotation.z,
-                                 headTracker.transform.localRotation.x,
-                                 -headTracker.transform.localRotation.y,
-                                 headTracker.transform.localRotation.w
-                             );
-                    ros.Publish(topicName, headPos);
-                    timeElapsed = 0f;
+                        PosRotMsg headPos = new PosRotMsg(
+                                     "body",
+                                     sentPosition.z,
+                                     -sentPosition.x,
+                                     sentPosition.y,
+                                     -headTracker.transform.localRotation.z,
+                                     headTracker.transform.localRotation.x,
+                                     -headTracker.transform.localRotation.y,
+                                     headTracker.transform.localRotation.w
+                                 );
+                        ros.Publish(topicName, headPos);
+                        timeElapsed = 0f;
+                    }
                 } else
                 {
                     TriggerRequest trigger = new TriggerRequest();
                     ros.SendServiceMessage<TriggerResponse>("/spot/stop", trigger, nothing);
+                    if (isGrasping)
+                    {
+                        ros.SendServiceMessage<TriggerResponse>("/spot/gripper_close", trigger, nothing);
+                        this.isGrasping = false;
+                    }
+                    
                     sendMsg = false;
                 }
             }
@@ -103,20 +112,20 @@ namespace Accessiblecontrol
         
         public void Grasp()
         {
-            if (this.isSelected)
+            if (this.isSelected && this.activated)
             {
                 ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
                 if (!isGrasping)
                 {
-                    IdMsg msg = new IdMsg("open hand");
-                    ros.Publish(status_topicName, msg);
+                    //IdMsg msg = new IdMsg("open hand");
+                    //ros.Publish(status_topicName, msg);
                     TriggerRequest trigger = new TriggerRequest();
                     ros.SendServiceMessage<TriggerResponse>("/spot/gripper_open", trigger, nothing);
                 }
                 else
                 {
-                    IdMsg msg = new IdMsg("close hand");
-                    ros.Publish(status_topicName, msg);
+                    //IdMsg msg = new IdMsg("close hand");
+                    //ros.Publish(status_topicName, msg);
                     TriggerRequest trigger = new TriggerRequest();
                     ros.SendServiceMessage<TriggerResponse>("/spot/gripper_close", trigger, nothing);
                 }
@@ -125,15 +134,26 @@ namespace Accessiblecontrol
            
         }
 
-        //public void ResetArm()
-        //{
-        //    if (this.isSelected)
-        //    {
-        //        ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
-        //        IdMsg msg = new IdMsg("reset");
-        //        ros.Publish(status_topicName, msg);
-        //    }
-        //}
+        public void RotateHand()
+        {
+            if (this.isSelected && this.activated)
+            {
+                ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
+                IdMsg msg = new IdMsg("rotate hand");
+                ros.Publish(status_topicName, msg);
+            }
+            
+        }
+
+        public void StopRotate()
+        {
+            if (this.isSelected && this.activated) {
+                ROSConnection ros = ros_manager.GetComponent<RosPublisherScript>().ros;
+                IdMsg msg = new IdMsg("stop rotate hand");
+                ros.Publish(status_topicName, msg);
+            }
+            
+        }
 
         private void nothing(TriggerResponse response)
         {
