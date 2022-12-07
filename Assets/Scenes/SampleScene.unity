@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -188,8 +188,8 @@ PrefabInstance:
         Say
         <b>"arm mode"<b> to enter the mode.
 
-        Say: <b>"activate"</b> and
-        move you can control the robot arm using head motion.
+        Say: <b>"activate"</b> and move
+        you can control the robot arm using head motion.
 
         Say: <b>"grasp"</b>
         to open the grasper and grasp things.
@@ -197,11 +197,11 @@ PrefabInstance:
         Say: <b>"grasp"</b> again
         to close the grasper and grasp things.
 
-        Say: <b>"terminate"</b>
-        again to close the grasper and grasp things.
+        Say: <b>"terminate"</b> again
+        to close the grasper and grasp things.
 
-        Say: <b>"reset arm"</b>
-        to reset arm position.
+        Say: <b>"reset arm"</b> to
+        reset arm position.
 
         <size=35><b>Simple Robot Manipulation<b></size>
 
@@ -679,6 +679,38 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: rotate hand
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719172}
+          m_TargetAssemblyTypeName: Accessiblecontrol.ArmMode, Assembly-CSharp
+          m_MethodName: RotateHand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: stop rotate hand
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 369719172}
+          m_TargetAssemblyTypeName: Accessiblecontrol.ArmMode, Assembly-CSharp
+          m_MethodName: StopRotate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1267,7 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFocusRequired: 1
+  isFocusRequired: 0
   keywords:
   - keyword: Help On
     response:
@@ -1751,6 +1783,38 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
+  - keyword: Spin
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: Spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
+  - keyword: Stop Spin
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1464551859}
+          m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
+          m_MethodName: StopSpin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SelectMode
+            m_BoolArgument: 0
+          m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!1 &1617928884
@@ -1894,7 +1958,7 @@ MonoBehaviour:
   cursor: {fileID: 416410299}
   anchorManager: {fileID: 289050001}
   visualizePosition: {fileID: 0}
-  topicName: hololens/select_pos_rot
+  topicName: hololens/pos_rot
 --- !u!1 &1816740565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localRotation: {x: -0.00000003090862, y: 0.70710677, z: -0.70710677, w: -0.00000003090862}
-  angleToRotate: 0
   isRotateMsgReceived: 0
   activated: 0
 --- !u!1001 &2110201699

@@ -31,7 +31,7 @@ public class RosPublisherScript : MonoBehaviour
     public GameObject visualizePlane;
     public GameObject anchorManager;
     public GameObject mainCamera;
-    public string comeHereTopicName = "hololens/come_here";
+    public string comeHereTopicName = "hololens/pos_rot";
     //public string arm_status_topicName = "hololens/arm_status";
 
     // Used to determine how much time has elapsed since the last message was published
@@ -58,7 +58,7 @@ public class RosPublisherScript : MonoBehaviour
 
         ros.RegisterPublisher<IdMsg>(topicAnchorId);
 
-        ros.RegisterPublisher<PosRotMsg>(comeHereTopicName);
+        // ros.RegisterPublisher<PosRotMsg>(comeHereTopicName);
 
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/sit");
         ros.RegisterRosService<TriggerRequest, TriggerResponse>("/spot/stand");
@@ -259,6 +259,24 @@ public class RosPublisherScript : MonoBehaviour
                          1f
                      );
             ros.Publish(comeHereTopicName, cursorPos);
+        }
+    }
+
+    public void Spin()
+    {
+        var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
+        if (!operationMode.isActivated())
+        {
+
+        }
+    }
+
+    public void StopSpin()
+    {
+        var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
+        if (!operationMode.isActivated())
+        {
+
         }
     }
 

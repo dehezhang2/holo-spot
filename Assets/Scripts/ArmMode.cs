@@ -92,7 +92,9 @@ namespace Accessiblecontrol
         public void Terminate()
         {
             this.activated = false;
-            this.sendMsg = true;
+            this.sendMsg = true; 
+            this.robotOffset = MainCamera.transform.InverseTransformPoint(virtualRobot.transform.position);   
+
             //Destroy(visualizeHead);
         }
 
