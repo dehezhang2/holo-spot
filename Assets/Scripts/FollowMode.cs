@@ -44,7 +44,7 @@ namespace Accessiblecontrol
                                      sentPosition.z,
                                      -sentPosition.x,
                                      sentPosition.y,
-                                     0f,
+                                     0.5f,
                                      0f,
                                      0f,
                                      1f

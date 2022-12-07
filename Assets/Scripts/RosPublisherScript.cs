@@ -23,7 +23,7 @@ public class RosPublisherScript : MonoBehaviour
     //// public string topicOriginName = "hololens/pos_rot_origin";
     //// public string topicDirectionName = "hololens/eye_ray_direction";
     public string topicAnchorId = "hololens/anchor_id";
-
+    public string topicSpin = "hololens/spin";
 
     // The game objects
     public GameObject cursor;
@@ -57,6 +57,7 @@ public class RosPublisherScript : MonoBehaviour
         // ros.RegisterPublisher<PosRotMsg>(selectOperationMode.topicName);
 
         ros.RegisterPublisher<IdMsg>(topicAnchorId);
+        ros.RegisterPublisher<IdMsg>(topicSpin);
 
         // ros.RegisterPublisher<PosRotMsg>(comeHereTopicName);
 
@@ -253,30 +254,33 @@ public class RosPublisherScript : MonoBehaviour
                          sentPosition.z,
                          -sentPosition.x,
                          sentPosition.y,
-                         0f,
+                         -1,
                          0f,
                          0f,
                          1f
                      );
+
             ros.Publish(comeHereTopicName, cursorPos);
         }
     }
 
-    public void Spin()
+    public void SpinRight()
     {
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
         if (!operationMode.isActivated())
         {
-
+            IdMsg msg_id = new IdMsg("spin right");
+            ros.Publish(topicSpin, msg_id);
         }
     }
 
-    public void StopSpin()
+    public void SpinLeft()
     {
         var operationMode = this.mode.GetComponent(typeof(OperationMode)) as OperationMode;
         if (!operationMode.isActivated())
         {
-
+            IdMsg msg_id = new IdMsg("spin left");
+            ros.Publish(topicSpin, msg_id);
         }
     }
 

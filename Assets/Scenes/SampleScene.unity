@@ -1441,12 +1441,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ros: {fileID: 0}
   topicAnchorId: hololens/anchor_id
+  topicSpin: hololens/spin
   cursor: {fileID: 416410299}
   mode: {fileID: 1276525343}
   visualizePlane: {fileID: 1917651584}
   anchorManager: {fileID: 289050001}
   mainCamera: {fileID: 963194225}
-  comeHereTopicName: hololens/come_here
+  comeHereTopicName: hololens/pos_rot
 --- !u!4 &1464551860
 Transform:
   m_ObjectHideFlags: 0
@@ -1783,13 +1784,13 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: Spin
+  - keyword: Spin Left
     response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1464551859}
           m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
-          m_MethodName: Spin
+          m_MethodName: SpinLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1799,13 +1800,13 @@ MonoBehaviour:
             m_StringArgument: SelectMode
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: Stop Spin
+  - keyword: Spin Right
     response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1464551859}
           m_TargetAssemblyTypeName: RosPublisherScript, Assembly-CSharp
-          m_MethodName: StopSpin
+          m_MethodName: SpinRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
