@@ -18,7 +18,7 @@ public class CameraSubscriber : MonoBehaviour
     private Vector3 localPos = new Vector3(0.22f, 0.1f, 1f);
     public Quaternion localRotation = Quaternion.Euler(90, 180, 0);
     private float currentImgAngle;
-    private float handAngle;
+    public float handAngle;
     public bool isRotateMsgReceived;
     public bool activated = false;
     void Start()
@@ -68,7 +68,8 @@ public class CameraSubscriber : MonoBehaviour
     }
 
     void ChangeImagePlaneAngle(JointStateMsg jointState) {
-        handAngle = (float)((jointState.position[jointState.position.Length - 1]) * 180.0 / Math.PI);
+        //handAngle = (float)(jointState.position[jointState.position.Length - 1]);
+        handAngle = (float)((jointState.position[jointState.position.Length - 2]+1.57) * 180.0 / Math.PI);
         float angleToRotate = handAngle - currentImgAngle;
         if (angleToRotate > 3 || angleToRotate < -3) {
             isRotateMsgReceived = true;
