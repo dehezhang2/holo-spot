@@ -218,6 +218,8 @@ public class RosPublisherScript : MonoBehaviour
         {
             TriggerRequest trigger = new TriggerRequest();
             ros.SendServiceMessage<TriggerResponse>("/spot/arm_stow", trigger, nothing);
+            var armMode = this.gameObject.transform.Find("ArmMode").gameObject;
+            armMode.GetComponent<ArmMode>().robotOffset = new Vector3((float)0, (float)-1, (float)-0.35);
         }
     }
     public void VisualizeOn()

@@ -69,7 +69,7 @@ public class CameraSubscriber : MonoBehaviour
 
     void ChangeImagePlaneAngle(JointStateMsg jointState) {
         //handAngle = (float)(jointState.position[jointState.position.Length - 1]);
-        handAngle = (float)((jointState.position[jointState.position.Length - 2]+1.57) * 180.0 / Math.PI);
+        handAngle = (float)((jointState.position[jointState.position.Length - 2]+ jointState.position[jointState.position.Length - 4]) * 180.0 / Math.PI);
         float angleToRotate = handAngle - currentImgAngle;
         if (angleToRotate > 3 || angleToRotate < -3) {
             isRotateMsgReceived = true;
