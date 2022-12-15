@@ -24,6 +24,7 @@ public class RosPublisherScript : MonoBehaviour
     //// public string topicDirectionName = "hololens/eye_ray_direction";
     public string topicAnchorId = "hololens/anchor_id";
     public string topicSpin = "hololens/spin";
+    public string topicResetArm = "hololens/reset_arm";
 
     // The game objects
     public GameObject cursor;
@@ -52,6 +53,7 @@ public class RosPublisherScript : MonoBehaviour
         var armOperationMode = gameObject.transform.Find("ArmMode").gameObject.GetComponent(typeof(OperationMode)) as ArmMode;
         ros.RegisterPublisher<PosRotMsg>(armOperationMode.topicName);
         ros.RegisterPublisher<IdMsg>(armOperationMode.status_topicName);
+        ros.RegisterPublisher<IdMsg>(topicResetArm);
 
         // var selectOperationMode = gameObject.transform.Find("SelectMode").gameObject.GetComponent(typeof(OperationMode)) as SelectMode;
         // ros.RegisterPublisher<PosRotMsg>(selectOperationMode.topicName);
@@ -218,8 +220,12 @@ public class RosPublisherScript : MonoBehaviour
         {
             TriggerRequest trigger = new TriggerRequest();
             ros.SendServiceMessage<TriggerResponse>("/spot/arm_stow", trigger, nothing);
+            IdMsg resetMsg = new IdMsg("reset arm");
+            ros.Publish(topicResetArm, resetMsg);
             var armMode = this.gameObject.transform.Find("ArmMode").gameObject;
             armMode.GetComponent<ArmMode>().robotOffset = new Vector3((float)0, (float)-1, (float)-0.35);
+            armMode.GetComponent<ArmMode>().robotOffsetRot = Quaternion.identity;
+
         }
     }
     public void VisualizeOn()

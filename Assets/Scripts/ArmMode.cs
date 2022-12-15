@@ -21,6 +21,7 @@ namespace Accessiblecontrol
         public GameObject headTracker;
         public GameObject virtualRobot;
         public Vector3 robotOffset;
+        public Quaternion robotOffsetRot;
         public Vector3 visualizationOffset;
         public GameObject ros_manager;
 
@@ -78,7 +79,9 @@ namespace Accessiblecontrol
         public void Activate()
         {
             virtualRobot.transform.position = MainCamera.transform.TransformPoint(robotOffset);
-            virtualRobot.transform.rotation = MainCamera.transform.rotation;
+            virtualRobot.transform.rotation = MainCamera.transform.rotation * this.robotOffsetRot;
+            
+            //virtualRobot.transform.rotation = MainCamera.transform.rotation;
 
             //visualizeHead = GameObject.CreatePrimitive(PrimitiveType.Cube);
             //visualizeHead.transform.position = MainCamera.transform.TransformPoint(visualizationOffset);
@@ -93,7 +96,8 @@ namespace Accessiblecontrol
         {
             this.activated = false;
             this.sendMsg = true; 
-            this.robotOffset = MainCamera.transform.InverseTransformPoint(virtualRobot.transform.position);   
+            this.robotOffset = MainCamera.transform.InverseTransformPoint(virtualRobot.transform.position);
+            this.robotOffsetRot = Quaternion.Inverse(MainCamera.transform.rotation) * virtualRobot.transform.rotation;
 
             //Destroy(visualizeHead);
         }
