@@ -6,7 +6,7 @@
 
 Here is a demostration of follow mode in our project:
 
-<video src="./Assets/holospot.mp4"></video>
+<video src="Assets/holospot.mp4"></video>
 
 For other modes, please see our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html).
 
@@ -24,7 +24,8 @@ A HoloLens 2 application that enables users (especially amputy people) to contro
 
 We implements three control modes, including follow mode (robot follow eye gaze), select mode (robot directly goes to the selected location), and arm mode (robot arm mimic the user’s head pose). Besides, we also implements user friendly interface including voice control,  arm camera visualization, and a help panel to show detailed command for the users. 
 
-More details about this project can be found in our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html) and [report](./report/report.pdf).
+More details about this project can be found in our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html) and [report](
+report/report.pdf).
 
 Authors: [Ganlin Zhang*](https://github.com/zhangganlin), [Deheng Zhang *](), [Longteng Duan *](https://github.com/DecAd3), [Guo Han *](https://github.com/guo-han)
 
