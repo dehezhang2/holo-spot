@@ -1,12 +1,12 @@
 # HoloSpot: Accessible robot control in Mixed Reality
 
-<img src="assets/logo.png" alt="logo" style="zoom:10%;" />
+<img src="Assets/logo.png" alt="logo" style="zoom:10%;" />
 
 ## Demo
 
 Here is a demostration of follow mode in our project:
 
-<video src="./assets/holospot.mp4"></video>
+<video src="./Assets/holospot.mp4"></video>
 
 For other modes, please see our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html).
 
@@ -14,7 +14,7 @@ For other modes, please see our [project website](https://zhangganlin.github.io/
 
 Course project of Mixed Reality Fall 2022 in ETHZ.
 
-![motivation](assets/motivation.gif)
+![motivation](Assets/motivation.gif)
 
 A HoloLens 2 application that enables users (especially amputy people) to control the Boston Dynamics Spot robot’s movement and arm using:
 
@@ -34,7 +34,7 @@ Authors: [Ganlin Zhang*](https://github.com/zhangganlin), [Deheng Zhang *](), [L
 
 ## System Overview
 
-![system](assets/system.jpeg)
+![system](Assets/system.jpeg)
 
 ## Set Up
 
@@ -68,11 +68,11 @@ git clone https://github.com/dehezhang2/holo-spot.git
 
    Then click `Switch Platform`.
 
-   <img src="assets/Screen Shot 2023-01-17 at 2.40.04 PM.png" alt="Screen Shot 2023-01-17 at 2.40.04 PM" style="zoom:50%;" />
+   <img src="Assets/Screen Shot 2023-01-17 at 2.40.04 PM.png" alt="Screen Shot 2023-01-17 at 2.40.04 PM" style="zoom:50%;" />
 
 3. Switch the anchor user information in `Assets>Scenes>SampleScene`, edit the game object `AzureSpatialAnchors`, fill the `Spatial Anchors Account id`, `Spatial Anchors Account` and `Spatial Anchors Account Domain` in Credentials.
 
-   <img src="assets/Screen Shot 2023-01-17 at 2.41.16 PM.png" alt="Screen Shot 2023-01-17 at 2.41.16 PM" style="zoom:70%;" />
+   <img src="Assets/Screen Shot 2023-01-17 at 2.41.16 PM.png" alt="Screen Shot 2023-01-17 at 2.41.16 PM" style="zoom:70%;" />
 
 * **Please don’t move the project folder once you create it!!**
 * You can refer to the [MRTK Tutorial](https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-1-introduction) to build and deploy the project.
