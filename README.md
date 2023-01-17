@@ -6,7 +6,7 @@
 
 Here is a demostration of follow mode in our project:
 
-<video src="Assets/holospot.mp4"></video>
+https://user-images.githubusercontent.com/40571743/212917262-0d705417-1d2d-42b4-a7c3-dcc3b0e7d31d.mp4
 
 For other modes, please see our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html).
 
@@ -43,7 +43,6 @@ Requirements:
 
 * Windows for the unity application, Ubuntu 20.04 & ROS Noetic for the spot robot. 
 * The Unity version is really important (recommend [`2020.3.40`](https://unity.com/releases/editor/whats-new/2020.3.40) )
-* 
 
 Clone this repository:
 
