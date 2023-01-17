@@ -27,7 +27,7 @@ We implements three control modes, including follow mode (robot follow eye gaze)
 More details about this project can be found in our [project website](https://zhangganlin.github.io/Holo-Spot-Page/index.html) and [report](
 report/report.pdf).
 
-Authors: [Ganlin Zhang*](https://github.com/zhangganlin), [Deheng Zhang *](), [Longteng Duan *](https://github.com/DecAd3), [Guo Han *](https://github.com/guo-han)
+Authors: [Ganlin Zhang *](https://zhangganlin.github.io), [Deheng Zhang *](https://github.com/dehezhang2), [Longteng Duan *](https://github.com/DecAd3), [Guo Han *](https://github.com/guo-han)
 
 (\* Equally contribute to this project)
 
