@@ -86,3 +86,4 @@ We thank our supervisor [**Eric Vollenweider**](https://www.google.com/url?q=htt
 We also thank [**Boyang Sun**](https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fboyang-sun-8a1624117&sa=D&sntz=1&usg=AOvVaw0uGa6-eacTqtFZvf-OpCBZ) for the support for the usage of the Spot robot from [CVG lab in ETH Zurich](https://www.google.com/url?q=https%3A%2F%2Fwww.cvg.ethz.ch%2F&sa=D&sntz=1&usg=AOvVaw1dDhOuYfYGJ0L_aogn7TgC).
 
 ## License
+The code is released under the GPL-3.0 license.
