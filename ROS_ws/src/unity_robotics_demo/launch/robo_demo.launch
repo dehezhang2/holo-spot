@@ -1,0 +1,37 @@
+<launch>
+
+
+    <!-- In m/s. 0 applies spot's internal limits -->
+
+    <include file="$(find spot_driver)/launch/driver.launch">
+        <arg name="username" default="YOUR_SPOT_USERNAME" />
+        <arg name="password" default="YOUR_SPOT_PASSWORD" />
+        <arg name="hostname" default="YOUR_SPOT_HOSTNAME" />
+        <arg name="estop_timeout" default="9.0"/>
+        <arg name="autonomy_enabled" default="true"/>
+        <arg name="max_linear_velocity_x" default="0.5"/>
+        <arg name="max_linear_velocity_y" default="0.5"/>
+        <arg name="max_angular_velocity_z" default="1"/>
+        <arg name="allow_motion" default="true"/>
+        <arg name="driver_config" default="$(find spot_driver)/config/spot_ros.yaml"/>
+    </include>
+
+    <include file="$(find ros_tcp_endpoint)/launch/endpoint.launch">
+        <!-- <arg name="tcp_ip" default="192.168.1.243"/>
+        <arg name="tcp_port" default="10000"/> -->
+        <arg name="tcp_ip" default="YOUR_TCP_IP"/>
+        <arg name="tcp_port" default="YOUR_TCP_PORT"/>
+    </include>
+
+    <node pkg="unity_robotics_demo" name="query_anachor" type="query_anachor.py" output="screen"/>
+    <node pkg="unity_robotics_demo" name="convert_unitymsg_to_armcmd" type="convert_unitymsg_to_armcmd.py" output="screen"/>
+    <node pkg="unity_robotics_demo" name="convert_unitymsg_to_posemsg" type="convert_unitymsg_to_posemsg.py" output="screen"/>
+    <node pkg="unity_robotics_demo" name="move" type="move.py" output="screen"/>
+
+    <node pkg="spot_tools_core" name="command_republisher" type="command_republisher.py" output="screen"/>
+    <node pkg="spot_tools_core" name="asa_anchor_rotator_node" type="asa_anchor_rotator_node.py" output="screen"/>
+
+    <node name="republish_compressed" type="republish" pkg="image_transport" args="raw in:=/spot/camera/hand_color/image compressed out:=/spot/camera/hand_color" />
+
+
+</launch>
