@@ -84,6 +84,14 @@ git clone https://github.com/dehezhang2/holo-spot.git
 We thank our supervisor [**Eric Vollenweider**](https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Feric-vollenweider-1b4b1616a%2F&sa=D&sntz=1&usg=AOvVaw17gr9GUNJvSQ1Z8q3tNMfJ) from [Microsoft Mixed Reality & AI Lab Zurich](https://www.google.com/url?q=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fresearch%2Flab%2Fmixed-reality-ai-zurich%2F&sa=D&sntz=1&usg=AOvVaw0Kr16B1OhJ7Ac4DE_GRBcG) for the help and tons of useful advice for this project.
 
 We also thank [**Boyang Sun**](https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fboyang-sun-8a1624117&sa=D&sntz=1&usg=AOvVaw0uGa6-eacTqtFZvf-OpCBZ) for the support for the usage of the Spot robot from [CVG lab in ETH Zurich](https://www.google.com/url?q=https%3A%2F%2Fwww.cvg.ethz.ch%2F&sa=D&sntz=1&usg=AOvVaw1dDhOuYfYGJ0L_aogn7TgC).
-
+## Reference
+```
+@article{zhang2023accessible,
+  title={Accessible Robot Control in Mixed Reality},
+  author={Zhang, Ganlin and Zhang, Deheng and Duan, Longteng and Han, Guo},
+  journal={arXiv preprint arXiv:2306.02393},
+  year={2023}
+}
+```
 ## License
 The code is released under the GPL-3.0 license.
